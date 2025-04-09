@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D ГРАФИКА ДЛЯ БИЗНЕСА</title>
+  <link rel="icon" href="https://psv4.userapi.com/s/v1/d/s7ckJA-yZpUl6LUQ0wRMVKHoDVnxYx1vbjc_RoR2Ay_yIwIyl2B-BNmob4nz2oGTV-3gypFiShudJezhmCq_gw2woJUY0p3_ySbcSSS3LBI0BfcFHDTgnA/ggg.ico">
+  
+  <!-- Tailwind CSS Production Version -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+        .carousel {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+        .carousel-item {
+            scroll-snap-align: center;
+            transition: transform 0.3s ease;
+        }
+        .carousel-item:hover {
+            transform: translateY(-5px);
+        }
+        /* Hide scrollbar but keep functionality */
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+		
+    :root {
+      --primary-color: #2563EB;
+      --secondary-color: #FFFFFF;
+      --accent-color: #FF4B4B;
+      --box1-bg: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+      --box2-bg: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      --box3-bg: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+      --box4-bg: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+    }
+
+    .header-image {
+      background: url("untitled.jpg") center/cover;
+      height: 60vh;
+      display: flex;
+	  flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary-color);
+      position: relative;
+    }
+
+    .header-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .header-image h1 {
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .service-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      padding: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-box {
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .service-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.9;
+	  filter: brightness(45%);
+      transition: all 0.3s ease;
+    }
+
+
+
+
+    .service-box:nth-child(1)::before {
+      background: url("1.jpg") center/cover;
+    }
+	.service-box:nth-child(1):hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+	  transition: all 0.3s ease;
+    }
+    .service-box:nth-child(1):hover::before {
+      opacity: 1;
+	  filter: brightness(90%);
+    }
+
+
+
+
+    .service-box:nth-child(2)::before {
+      background: url("4.jpg") center/cover;
+    }
+	.service-box:nth-child(2):hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+	  transition: all 0.3s ease;
+    }
+    .service-box:nth-child(2):hover::before {
+      opacity: 1;
+	  filter: brightness(90%);
+    }
+
+
+
+    .service-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-title {
+      font-family: 'Montserrat', sans-serif;
+	  font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+
+    .service-description {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      line-height: 1.4;
+	  margin-bottom: 20px;
+    }
+
+    .tg-button {
+      background: var(--accent-color);
+      color: white !important;
+      padding: 1rem 3rem;
+      border-radius: 24px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin: 4rem auto 2rem;
+      display: block;
+      text-align: center;
+      max-width: 300px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .tg-button:hover {
+      background: #E53E3E;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+    }
+
+    .tg-button i {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .service-container {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1.5rem;
+      }
+      
+      .header-image {
+        height: 35vh;
+      }
+
+      .service-title {
+        font-size: 1.3rem;
+      }
+
+      .service-description {
+        font-size: 0.95rem;
+		margin-bottom: 20px;
+      }
+
+      .tg-button {
+        margin: 2rem auto;
+        padding: 0.8rem 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-image h1 {
+        font-size: 2rem;
+      }
+      
+      .service-box {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header-image">
+    <h1 class="text-4xl font-bold" style="font-size: clamp(29px, 5vw, 50px); text-align: center;">3D ГРАФИКА ДЛЯ БИЗНЕСА</h1>
+  </div>
+
+<div class="bg-gray-100  flex items-center justify-center p-4"  style="padding-top: 25px; padding-bottom: 10px;">
+    <h1 class="text-4xl" style="margin-top: 25px; font-size: clamp(20px, 4vw, 30px); text-align: center; opacity: 1; color: black;">Технично воплотим в жизнь Вашу идею</br>С нами всё просто</h1>
+</div>
+
+<div class="bg-gray-100  flex items-center justify-center p-4"  style="padding-top: 10px; padding-bottom: 15px;">
+    <img src="arrow.png" style="max-width: 100px; width: 20vw; height: auto;">
+</div>
+<div class="bg-gray-100  flex items-center justify-center p-4"  style="padding-top: 25px; padding-bottom: 25px;">
+
+<div class="max-w-6xl w-full">
+        
+        <div class="carousel flex overflow-x-auto gap-4 p-4 bg-white rounded-xl shadow-lg">
+            <!-- Carousel items -->
+            <div class="carousel-item flex-shrink-0 w-64 h-64 rounded-lg overflow-hidden" style="min-height: 300px; min-width: 300px; width: 30vw; height: 30vw;">
+                <img src="8.jpg" alt="Image 2" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item flex-shrink-0 w-64 h-64 rounded-lg overflow-hidden" style="min-height: 300px; min-width: 500px; width: 50vw; height: 30vw;">
+                <img src="3.jpg" alt="Image 3" class="w-full h-full object-cover">
+            </div>
+			<div class="carousel-item flex-shrink-0 w-64 h-64 rounded-lg overflow-hidden" style="min-height: 300px; min-width: 400px; width: 40vw; height: 30vw;">
+                <img src="2.jpg" alt="Image 1" class="w-full h-full object-cover" >
+            </div>
+            <div class="carousel-item flex-shrink-0 w-64 h-64 rounded-lg overflow-hidden" style="min-height: 300px; min-width: 500px; width: 50vw; height: 30vw;">
+                <img src="5.jpg" alt="Image 7" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-6 gap-4">
+            <button class="scroll-left px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="scroll-right px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+    </div>
+	
+	
+	
+	<script>
+        const carousel = document.querySelector('.carousel');
+        const scrollLeftBtn = document.querySelector('.scroll-left');
+        const scrollRightBtn = document.querySelector('.scroll-right');
+        const items = document.querySelectorAll('.carousel-item');
+
+        // Mousewheel scrolling
+        carousel.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            carousel.scrollLeft += e.deltaY;
+        });
+
+        // Button navigation
+        scrollLeftBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        scrollRightBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        // Enhanced hover effect
+        items.forEach(item => {
+            item.addEventListener('mousemove', (e) => {
+                const rect = item.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const moveX = (x - centerX) / 20;
+                const moveY = (y - centerY) / 20;
+                
+                item.style.transform = `translate(${moveX}px, ${moveY - 5}px)`;
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateY(-5px)';
+            });
+        });
+    </script>
+
+<div>
+  <!-- Service Grid -->
+  <div class="service-container">
+    <!-- Service 1 -->
+    <div class="service-box">
+      <div class="service-content">
+        <h2 class="service-title">3D ГРАФИКА</h2>
+        <p class="service-description">ЛЮБАЯ 3D графика для рекламы, соцсетей</br>И чего угодно</br>Анимации и статичные кадры</p>
+		<h2 class="service-title" style="font-size: 2.2rem;">от 5000р.</h2>
+		<p class="service-description">Больше работы и сложнее заказ - выше цена</p>
+      </div>
+    </div>
+    
+    <!-- Service 2 -->
+    <div class="service-box">
+      <div class="service-content">
+        <h2 class="service-title">ЗАПУСК ЯНДЕКС ДИРЕКТ</h2>
+        <p class="service-description">Запускаем кампанию в Яндекс.Директ за Вас</br>Следим за метриками</br>Ведём кампанию</p>
+		<h2 class="service-title" style="font-size: 2.2rem;">от 3000р.</h2>
+		<p class="service-description">Больше нашего сопровождения - выше цена</p>
+      </div>
+    </div>
+ </div>
+
+
+<div class="bg-gray-100  flex items-center justify-center p-4"  style="padding-top: 40px; padding-bottom: 20px;">
+<h1 class="text-4xl font-bold" style="font-size: clamp(20px, 5vw, 25px); text-align: center;">Обращайтесь по телефону</h1> 
+</div>
+<div class="bg-gray-100  flex items-center justify-center p-4"  style="padding-top: 20px; padding-bottom: 20px;">
+<h1 class="text-4xl font-bold" style="font-size: clamp(26px, 5vw, 40px); text-align: center;">+7 (927) 716-54-49</h1>
+</div>
+<div class="bg-gray-100  flex items-center justify-center p-4"  style="padding-top: 20px; padding-bottom: 160px;">
+<h1 class="text-4xl font-bold" style="font-size: clamp(20px, 5vw, 25px); text-align: center;">Telegram и WhatsApp по этому же контакту</h1> 
+</div>
+</body>
+</html>
